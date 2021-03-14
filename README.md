@@ -1,7 +1,7 @@
 # Shapes-Game
 
 To clone the repository:<br />
-git clone "https://github.com/Jamesrkiv/Last-Semester-Game"
+git clone "https://github.com/Jamesrkiv/Shapes-Game"
 
 To commit/push changes:<br />
 git add . <br />
