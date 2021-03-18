@@ -5,6 +5,8 @@ using UnityEngine;
 public class RotateCamera : MonoBehaviour
 {
     public float rotationSpeed = 50;
+    public GameObject player;
+    public GameObject focalpoint;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +17,7 @@ public class RotateCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        focalpoint.transform.position = player.transform.position;
     }
 
     // Runs in fixed time steps (independent of fps)

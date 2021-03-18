@@ -13,7 +13,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{6DD192CB-4B70-36DD-B581-F60B9C37057D}</ProjectGuid>
+    <ProjectGuid>{C5BE97D7-0272-7509-4DF4-435CCAF3108C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -591,31 +591,31 @@
       <HintPath>D:/Program Files (x86)/Unity Editor/2019.4.19f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Alt Download/DO NOT DELETE/Unity Projects/Prototype 4 (4550)/Prototype 4 (4550)/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/james/Desktop/Shapes Game/Shapes-Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
