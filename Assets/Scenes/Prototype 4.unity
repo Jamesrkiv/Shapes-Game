@@ -1088,6 +1088,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   hasPowerup: 0
+  dashCooldown: 5
+  dashSpeed: 1000
   powerupIndicator: {fileID: 365379586}
   powerUpOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &898015273

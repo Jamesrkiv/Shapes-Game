@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     private float powerUpStrength = 15;
     private float powerUpTime = 5;
 
+    public float dashCooldown = 2; // Time between dashes
+    private bool canDash = true;
+    public float dashSpeed;
+
     public GameObject powerupIndicator;
     public Vector3 powerUpOffset;
 
@@ -31,6 +35,13 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("Game over!");
         }
+
+        if (Input.GetKeyDown("space") && canDash)
+        {
+            canDash = false;
+            playerRb.AddForce(focalPoint.transform.forward * dashSpeed);
+            StartCoroutine(DashCooldown());
+        }
     }
 
     // Runs in fixed time steps (independent of fps)
@@ -43,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Powerup"))
+        if (other.CompareTag("Powerup") && !hasPowerup)
         {
             Destroy(other.gameObject);
             hasPowerup = true;
@@ -71,5 +82,12 @@ public class PlayerController : MonoBehaviour
         powerupIndicator.gameObject.SetActive(false);
 
         Debug.Log("Powerup timer end");
+    }
+
+    IEnumerator DashCooldown()
+    {
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+        Debug.Log("Dash ready");
     }
 }
