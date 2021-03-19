@@ -9,8 +9,11 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyPrefab;   // Enemy
     public float spawnRange = 9;
 
+    public Text waveNum; // Current wave number
+    public int maxRound; // Round to make it to
+
     public static int enemyCount;
-    public int waveNumber = 1;
+    private int waveNumber = 1;
 
     public bool gameOver = false;
 
@@ -27,11 +30,25 @@ public class SpawnManager : MonoBehaviour
         gameOver = !GameObject.Find("Player");
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         
-        if (enemyCount == 0 && !gameOver)
+        if (enemyCount == 0 && !gameOver && waveNumber != maxRound)
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);
             SpawnPowerup();
+        }
+        else if (waveNumber == maxRound && enemyCount == 0)
+        {
+
+            // WIN HERE <<<
+
+            Debug.Log("You win!");
+        }
+        else if (gameOver)
+        {
+
+            // GAMEOVER HERE <<<
+
+            Debug.Log("You lose!");
         }
     }
 
@@ -44,6 +61,8 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemyWave(int enemiesToSpawn)
     {
+        waveNum.text = enemiesToSpawn.ToString() + "/" + maxRound;
+
         for (int i = 0; i < enemiesToSpawn; i++)
         {
             Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
