@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyPrefab;   // Enemy
     public float spawnRange = 9;
 
-    public int enemyCount;
+    public static int enemyCount;
     public int waveNumber = 1;
 
     public bool gameOver = false;
