@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 613}
   m_MaxSize: {x: 10002, y: 18063}
   vertical: 1
-  controlID: 107
+  controlID: 80
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -452,9 +452,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 261.3711, y: 249.13675, z: 60.45868}
+    m_Target: {x: 53.08159, y: -48.17398, z: 23.112585}
     speed: 2
-    m_Value: {x: 261.3711, y: 249.13675, z: 60.45868}
+    m_Value: {x: 53.08159, y: -48.17398, z: 23.112585}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -500,13 +500,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08688245, y: 0.013448561, z: -0.0011738052, w: 0.9961332}
+    m_Target: {x: -0.3237147, y: -0.5169032, z: 0.21976537, w: -0.7614112}
     speed: 2
-    m_Value: {x: 0.08688192, y: 0.013448479, z: -0.0011737981, w: 0.9961271}
+    m_Value: {x: -0.32371086, y: -0.5168971, z: 0.21976274, w: -0.76140213}
   m_Size:
-    m_Target: 322.8721
+    m_Target: 51.014088
     speed: 2
-    m_Value: 322.8721
+    m_Value: 51.014088
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -625,19 +625,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Materials
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Materials
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\james\Desktop\Shapes Game\Shapes-Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 66350000
-    m_LastClickedID: 13670
+    m_SelectedIDs: 5e350000
+    m_LastClickedID: 13662
     m_ExpandedIDs: 000000004435000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
