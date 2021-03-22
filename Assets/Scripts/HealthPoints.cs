@@ -8,6 +8,7 @@ public class HealthPoints : MonoBehaviour
 
     public int hp;
     public int maxHP;
+    public int healthPackAmount = 50;
 
     private int damage; // Damage to be dealt
     public int playerDamageMultiplier;
@@ -49,6 +50,31 @@ public class HealthPoints : MonoBehaviour
             targetHP.hp -= damage; // Damage being applied
 
             Debug.Log(damage + " damage taken!");
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("HealthPack") && !gameObject.CompareTag("Enemy")) //Prevents enemies from picking up healthpack
+        {
+            if (hp >= maxHP)
+            { 
+                Debug.Log("HP is Full");
+            }
+            else if (hp < maxHP)
+            {
+                hp += healthPackAmount;
+                if (hp > maxHP)
+                {
+                    hp = maxHP;
+                    Destroy(other.gameObject);
+                }
+                else
+                {
+                    Destroy(other.gameObject);
+                }
+            }
         }
     }
 

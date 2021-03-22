@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed;
 
     public GameObject powerupIndicator;
-    public Vector3 powerUpOffset;
+    public Vector3 powerUpOffset; 
 
     // Start is called before the first frame update
     void Start()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject powerUpPrefab; // Powerup
+    public GameObject healthPack;
     public GameObject enemyPrefab;   // Enemy
     public float spawnRange = 9;
 
@@ -34,7 +35,7 @@ public class SpawnManager : MonoBehaviour
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);
-            SpawnPowerup();
+            SpawnPowerup();                //<-Spawns Healthpack on new Round
         }
         else if (waveNumber == maxRound && enemyCount == 0)
         {
@@ -72,5 +73,6 @@ public class SpawnManager : MonoBehaviour
     void SpawnPowerup()
     {
         Instantiate(powerUpPrefab, GenerateSpawnPosition(), powerUpPrefab.transform.rotation);
+        Instantiate(healthPack, GenerateSpawnPosition(), healthPack.transform.rotation);
     }
 }
