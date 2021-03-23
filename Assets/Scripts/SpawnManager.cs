@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject powerUpPrefab; // Powerup
     public GameObject healthPack;
+    public GameObject cashPrefab;
     public GameObject enemyPrefab;   // Enemy
     public float spawnRange = 9;
 
@@ -18,11 +19,16 @@ public class SpawnManager : MonoBehaviour
 
     public bool gameOver = false;
 
+    private float cashRespawnTime = 10;
+
+    private Shop shopManager;
+
     // Start is called before the first frame update
     void Start()
     {
         SpawnEnemyWave(waveNumber);
         SpawnPowerup();
+        InvokeRepeating("SpawnCash", 5, cashRespawnTime);
     }
 
     // Update is called once per frame
@@ -30,12 +36,12 @@ public class SpawnManager : MonoBehaviour
     {
         gameOver = !GameObject.Find("Player");
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        
         if (enemyCount == 0 && !gameOver && waveNumber != maxRound)
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);
             SpawnPowerup();                //<-Spawns Healthpack on new Round
+            shopManager.showMenu();
         }
         else if (waveNumber == maxRound && enemyCount == 0)
         {
@@ -74,5 +80,10 @@ public class SpawnManager : MonoBehaviour
     {
         Instantiate(powerUpPrefab, GenerateSpawnPosition(), powerUpPrefab.transform.rotation);
         Instantiate(healthPack, GenerateSpawnPosition(), healthPack.transform.rotation);
+    }
+
+    void SpawnCash()
+    {
+        Instantiate(cashPrefab, GenerateSpawnPosition(), cashPrefab.transform.rotation);
     }
 }

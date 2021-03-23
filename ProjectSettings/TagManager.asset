@@ -7,6 +7,9 @@ TagManager:
   - Powerup
   - Enemy
   - HealthPack
+  - PowerupIcon
+  - Template
+  - Cash
   layers:
   - Default
   - TransparentFX
