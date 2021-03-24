@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
 
     private float cashRespawnTime = 10;
 
-    private Shop shopManager;
+    public Shop shopManager;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +39,15 @@ public class SpawnManager : MonoBehaviour
         if (enemyCount == 0 && !gameOver && waveNumber != maxRound)
         {
             waveNumber++;
+            shopManager.showMenu();         //Shows buy menu
+            if(shopManager.gameObject.activeSelf == false)
+            {
+                shopManager.closeMenu();
+            }
             SpawnEnemyWave(waveNumber);
             SpawnPowerup();                //<-Spawns Healthpack on new Round
-            shopManager.showMenu();
         }
+
         else if (waveNumber == maxRound && enemyCount == 0)
         {
 
@@ -85,5 +90,10 @@ public class SpawnManager : MonoBehaviour
     void SpawnCash()
     {
         Instantiate(cashPrefab, GenerateSpawnPosition(), cashPrefab.transform.rotation);
+    }
+
+    public void closeShop()
+    {
+        shopManager.closeMenu();
     }
 }
