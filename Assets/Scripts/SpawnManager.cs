@@ -36,6 +36,11 @@ public class SpawnManager : MonoBehaviour
         if (enemyCount == 0 && !gameOver && waveNumber != maxRound)
         {
             waveNumber++;
+            shopManager.showMenu();         //Shows buy menu
+            if (shopManager.gameObject.activeSelf == false)
+            {
+                shopManager.closeMenu();
+            }
             SpawnEnemyWave(waveNumber);
             SpawnPowerup(); // Spawns Healthpack on new Round
             // shopManager.showMenu();
