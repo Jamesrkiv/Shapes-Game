@@ -13,6 +13,9 @@ public class HealthPoints : MonoBehaviour
     private int damage; // Damage to be dealt
     public int playerDamageMultiplier;
 
+    public float gemDamageMultiplier = 1.30f;
+    public bool haveGem = false;
+
     private float Speed; // Current speed
     public float UpdateDelay; // Delay between updating current speed (in seconds)
 
@@ -27,6 +30,7 @@ public class HealthPoints : MonoBehaviour
     {
         if (hp <= 0) // Destroys entity if HP hits zero
         {
+            hp = 0; // Avoids negatives
             Destroy(gameObject);
         }
     }
@@ -36,6 +40,7 @@ public class HealthPoints : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && !gameObject.CompareTag("Enemy")) // Prevents enemies from hurting one another
         {
             damage = (int) Speed * playerDamageMultiplier; // Drops decimal
+            if (haveGem) damage = (int)(damage * gemDamageMultiplier); // Additional damage multiplier for gem
             HealthPoints targetHP = collision.gameObject.GetComponent<HealthPoints>();
 
             targetHP.hp -= damage; // Damage being applied

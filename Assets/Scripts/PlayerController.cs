@@ -7,8 +7,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     public float speed = 5;
     private GameObject focalPoint;
+    private HealthPoints healthPoints;
     
     public bool hasGem = false; // Details for gem powerup
+    private bool gemEffect = false;
     private float gemStrength = 15;
     private float gemTime = 10;
 
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("Focal Point");
         powerUpOffset = powerupIndicator.transform.position;
+        healthPoints = GetComponent<HealthPoints>();
     }
 
     // Update is called once per frame
@@ -50,6 +53,8 @@ public class PlayerController : MonoBehaviour
         if (hasGem) // hasGem set to true by Shop.cs, detected here
         {
             hasGem = false; // Immediately set to false to avoid infinite calls
+            gemEffect = true;
+            healthPoints.haveGem = true; // Signals HP script to enable damage multiplier
             StartCoroutine(PowerupCountdownRoutine());
             powerupIndicator.gameObject.SetActive(true);
 
@@ -94,7 +99,7 @@ public class PlayerController : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Enemy": // Collide with enemy
-                if (hasGem)
+                if (gemEffect)
                 {
                     Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
                     Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position;
@@ -112,7 +117,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator PowerupCountdownRoutine()
     {
         yield return new WaitForSeconds(gemTime);
-        hasGem = false;
+        gemEffect = false;
+        healthPoints.haveGem = false;
         powerupIndicator.gameObject.SetActive(false);
 
         Debug.Log("Powerup timer end");
