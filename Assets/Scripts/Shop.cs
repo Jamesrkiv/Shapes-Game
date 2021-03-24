@@ -113,4 +113,17 @@ public class Shop : MonoBehaviour
         if (buyItem(powerups[0])) player.GetComponent<PlayerController>().hasGem = true;
     }
 
+    /// <summary>
+    /// Buy Hp in the Menu
+    /// Max HP +25
+    /// Gives +30 Health to player
+    /// </summary>
+    public void buyMaxHp()
+    {
+        if (buyItem(powerups[1]))
+        {
+            player.GetComponent<HealthPoints>().MaxHP.playerMaxHP += 25;
+            player.GetComponent<HealthPoints>().hp = player.GetComponent<HealthPoints>().hp + 30;
+        }
+    }
 }

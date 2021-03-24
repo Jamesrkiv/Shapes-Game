@@ -7,7 +7,7 @@ public class HealthPoints : MonoBehaviour
     // This script is intended for use by the player AND enemies
 
     public int hp;
-    public int maxHP;
+    public HPScriptableObject MaxHP;
     public int healthPackAmount = 50;
 
     private int damage; // Damage to be dealt
@@ -23,6 +23,16 @@ public class HealthPoints : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpeedReckoner());
+
+        //Sets the MaxHP based on the tag that object has
+        if (gameObject.CompareTag("Enemy"))
+            hp = MaxHP.enemyMaxHP;
+        if (gameObject.CompareTag("Player"))
+        {
+            //Sets the games base hp per game
+            MaxHP.playerMaxHP = MaxHP.StartingPlayerMaxHP;
+            hp = MaxHP.playerMaxHP;
+        }
 }
 
     // Update is called once per frame
@@ -63,16 +73,16 @@ public class HealthPoints : MonoBehaviour
     {
         if (other.CompareTag("HealthPack") && !gameObject.CompareTag("Enemy")) //Prevents enemies from picking up healthpack
         {
-            if (hp >= maxHP)
+            if (hp >= MaxHP.playerMaxHP)
             { 
                 Debug.Log("HP is Full");
             }
-            else if (hp < maxHP)
+            else if (hp < MaxHP.playerMaxHP)
             {
                 hp += healthPackAmount;
-                if (hp > maxHP)
+                if (hp > MaxHP.playerMaxHP)
                 {
-                    hp = maxHP;
+                    hp = MaxHP.playerMaxHP;
                     Destroy(other.gameObject);
                 }
                 else
@@ -109,4 +119,5 @@ public class HealthPoints : MonoBehaviour
             // if (gameObject.CompareTag("Player")) Debug.Log(Speed); // Tracks player speed only
         }
     }
+
 }

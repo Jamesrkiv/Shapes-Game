@@ -137,7 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14124d85ca74fe74da407d769a542a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  maxHP: 100
+  hp: 75
+  MaxHP: {fileID: 11400000, guid: 70659f6b212f3ea4cb2e4b97ee66b885, type: 2}
+  healthPackAmount: 50
   playerDamageMultiplier: 2
+  gemDamageMultiplier: 1.3
+  haveGem: 0
   UpdateDelay: 0.1
