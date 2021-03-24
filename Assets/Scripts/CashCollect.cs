@@ -26,6 +26,7 @@ public class CashCollect : MonoBehaviour
     public void pay(int cost)
     {
         cashAmount = cashAmount - cost;
+        cashText.text = cashAmount.ToString();
     }
 
 

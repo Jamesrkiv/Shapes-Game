@@ -10,9 +10,9 @@ public class Shop : MonoBehaviour
     private Transform shopUI;
     private Transform shopSelect;
 
-    public PowerUp[] poweups;
-
-    public CashCollect cash;
+    public GameObject[] powerups;
+    public GameObject player;
+    private CashCollect cash;
 
     public enum buttonAssets
     {
@@ -29,7 +29,7 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        cash = player.GetComponent<CashCollect>();
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class Shop : MonoBehaviour
      
     }
 
-
+    /*
     //Creates button for shop selection
     private void shopButtonCreate(Sprite icon, string name, int price, int pos)
     {
@@ -69,30 +69,36 @@ public class Shop : MonoBehaviour
         Debug.Log("Menu created!");
 
     }
-
+    */
     
     //Uses powerup to base if you can buy item or not
     
-    public void buyItem(PowerUp powerUp)
+    public bool buyItem(GameObject powerUp)
     {
-        if(powerUp.price >= 0)
+        int price = powerUp.GetComponent<PowerUp>().price;
+        if(price >= 0)
         {
-            if (cash.cashAmount >= powerUp.price)
+            if (cash.cashAmount >= price)
             {
-                cash.pay(powerUp.price);
+                cash.pay(price);
+                closeMenu();
+                return true;
             }
+            return false;
         }
-        else
+        else // Shouldn't happen, ideally
         {
-            closeMenu();
+            return false;
         }
     }
 
     public void showMenu()
     {
         shopUI.gameObject.SetActive(true);
+        /*
         shopButtonCreate(poweups[0].icon, poweups[0].powerupName, poweups[0].price, 0);
-        shopCloseButtonCreate("Close Shop", 5);
+        shopCloseButtonCreate("CLOSE", 5);
+        */
         Time.timeScale = 0;
     }
 
@@ -100,6 +106,11 @@ public class Shop : MonoBehaviour
     {
         shopUI.gameObject.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void buyGem()
+    {
+        if (buyItem(powerups[0])) player.GetComponent<PlayerController>().hasGem = true;
     }
 
 }

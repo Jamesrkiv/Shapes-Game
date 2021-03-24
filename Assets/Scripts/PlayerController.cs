@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     
     public bool hasGem = false; // Details for gem powerup
     private float gemStrength = 15;
-    private float gemTime = 5;
+    private float gemTime = 10;
 
     public float dashCooldown = 2; // Time between dashes
     private bool canDash = true;
@@ -46,6 +46,15 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(focalPoint.transform.forward * dashSpeed);
             StartCoroutine(DashCooldown());
         }
+
+        if (hasGem) // hasGem set to true by Shop.cs, detected here
+        {
+            hasGem = false; // Immediately set to false to avoid infinite calls
+            StartCoroutine(PowerupCountdownRoutine());
+            powerupIndicator.gameObject.SetActive(true);
+
+            Debug.Log("Powerup get");
+        }
     }
 
     // Runs in fixed time steps (independent of fps)
@@ -60,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         switch (other.tag)
         {
+            /*
             case "Powerup":
                 if (!hasGem)
                 {
@@ -71,6 +81,7 @@ public class PlayerController : MonoBehaviour
                     Debug.Log("Powerup get");
                 }
                 break;
+              */
 
             case "Cash":
                 moneyGet.GetComponent<AudioSource>().Play();
