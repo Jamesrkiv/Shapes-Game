@@ -20,7 +20,7 @@ public class HealthPoints : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpeedReckoner());
-    }
+}
 
     // Update is called once per frame
     void Update()

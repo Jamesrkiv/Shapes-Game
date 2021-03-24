@@ -8,16 +8,20 @@ public class PlayerController : MonoBehaviour
     public float speed = 5;
     private GameObject focalPoint;
     
-    public bool hasPowerup = false;
-    private float powerUpStrength = 15;
-    private float powerUpTime = 5;
+    public bool hasGem = false; // Details for gem powerup
+    private float gemStrength = 15;
+    private float gemTime = 5;
 
     public float dashCooldown = 2; // Time between dashes
     private bool canDash = true;
     public float dashSpeed;
 
     public GameObject powerupIndicator;
-    public Vector3 powerUpOffset; 
+    public Vector3 powerUpOffset;
+
+    public GameObject enemyThump;
+    public GameObject moneyGet;
+    public GameObject bounceSurface;
 
     // Start is called before the first frame update
     void Start()
@@ -54,31 +58,50 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Powerup") && !hasPowerup)
+        switch (other.tag)
         {
-            Destroy(other.gameObject);
-            hasPowerup = true;
-            StartCoroutine(PowerupCountdownRoutine());
-            powerupIndicator.gameObject.SetActive(true);
+            case "Powerup":
+                if (!hasGem)
+                {
+                    Destroy(other.gameObject);
+                    hasGem = true;
+                    StartCoroutine(PowerupCountdownRoutine());
+                    powerupIndicator.gameObject.SetActive(true);
 
-            Debug.Log("Powerup get");
+                    Debug.Log("Powerup get");
+                }
+                break;
+
+            case "Cash":
+                moneyGet.GetComponent<AudioSource>().Play();
+                break;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
+        switch (collision.gameObject.tag)
         {
-            Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position;
-            enemyRb.AddForce(awayFromPlayer * powerUpStrength, ForceMode.Impulse);
+            case "Enemy": // Collide with enemy
+                if (hasGem)
+                {
+                    Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
+                    Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position;
+                    enemyRb.AddForce(awayFromPlayer * gemStrength, ForceMode.Impulse);
+                }
+                enemyThump.GetComponent<AudioSource>().Play();
+                break;
+           
+            case "Obst": // Collide with obstacle
+                bounceSurface.GetComponent<AudioSource>().Play();
+                break;
         }
     }
 
     IEnumerator PowerupCountdownRoutine()
     {
-        yield return new WaitForSeconds(powerUpTime);
-        hasPowerup = false;
+        yield return new WaitForSeconds(gemTime);
+        hasGem = false;
         powerupIndicator.gameObject.SetActive(false);
 
         Debug.Log("Powerup timer end");

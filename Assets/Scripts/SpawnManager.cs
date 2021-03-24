@@ -8,26 +8,23 @@ public class SpawnManager : MonoBehaviour
     public GameObject powerUpPrefab; // Powerup
     public GameObject healthPack;
     public GameObject cashPrefab;
-    public GameObject enemyPrefab;   // Enemy
-    public float spawnRange = 9;
+    public GameObject enemyPrefab; // Enemy
+    public Shop shopManager; // shop
+
+    public float spawnRange; // defines the range where things can spawn
+    private float cashRespawnTime = 10; // How long it takes cash to respawn
 
     public Text waveNum; // Current wave number
     public int maxRound; // Round to make it to
-
     public static int enemyCount;
     private int waveNumber = 1;
-
     public bool gameOver = false;
-
-    private float cashRespawnTime = 10;
-
-    private Shop shopManager;
 
     // Start is called before the first frame update
     void Start()
     {
         SpawnEnemyWave(waveNumber);
-        SpawnPowerup();
+        // SpawnPowerup();
         InvokeRepeating("SpawnCash", 5, cashRespawnTime);
     }
 
@@ -40,8 +37,8 @@ public class SpawnManager : MonoBehaviour
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);
-            SpawnPowerup();                //<-Spawns Healthpack on new Round
-            shopManager.showMenu();
+            SpawnPowerup(); // Spawns Healthpack on new Round
+            // shopManager.showMenu();
         }
         else if (waveNumber == maxRound && enemyCount == 0)
         {
@@ -78,7 +75,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnPowerup()
     {
-        Instantiate(powerUpPrefab, GenerateSpawnPosition(), powerUpPrefab.transform.rotation);
+        // Instantiate(powerUpPrefab, GenerateSpawnPosition(), powerUpPrefab.transform.rotation);
         Instantiate(healthPack, GenerateSpawnPosition(), healthPack.transform.rotation);
     }
 
