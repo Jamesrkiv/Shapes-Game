@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7871090192424534541}
   - component: {fileID: 7885741935403558853}
   - component: {fileID: -189861419738101341}
+  - component: {fileID: -3904202593430537290}
   m_Layer: 0
   m_Name: Powerup
   m_TagString: Powerup
@@ -106,3 +107,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e48bc78c46400d42a327dbc8059f436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3904202593430537290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7884665509955022753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50fbd4c1bb0e8d4fa2154b18887a12a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: f6caeb182d8806849a77c7936cf57c47, type: 3}
+  powerupName: Diamond
+  price: 200

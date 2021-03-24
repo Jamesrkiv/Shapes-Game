@@ -23,6 +23,11 @@ public class CashCollect : MonoBehaviour
         
     }
 
+    public void pay(int cost)
+    {
+        cashAmount = cashAmount - cost;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

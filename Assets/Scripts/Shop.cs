@@ -10,9 +10,7 @@ public class Shop : MonoBehaviour
     private Transform shopUI;
     private Transform shopSelect;
 
-    public Sprite[] spriteIcons;
-
-    public int diamondPrice = 200;
+    public PowerUp[] poweups;
 
     public CashCollect cash;
 
@@ -31,18 +29,13 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //shopButtonCreate(spriteIcons[0], "diamond", diamondPrice, 0);
-        //shopCloseButtonCreate(spriteIcons[4], "Close Shop", 1);
-        //Debug.Log("Menu created!");
-
-        //closeMenu();
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-        //shopButtonCreate(spriteIcons[0], "diamond", diamondPrice, 0);
-        //shopCloseButtonCreate(spriteIcons[4], "Close Shop", 5);
+     
     }
 
 
@@ -64,7 +57,7 @@ public class Shop : MonoBehaviour
 
 
     //Creates close button for shop
-    private void shopCloseButtonCreate(Sprite icon, string name, int pos)
+    private void shopCloseButtonCreate(string name, int pos)
     {
         Transform menuTransform = Instantiate(shopSelect, shopUI);
         RectTransform menuRectTransform = menuTransform.GetComponent<RectTransform>();
@@ -73,31 +66,33 @@ public class Shop : MonoBehaviour
         menuRectTransform.anchoredPosition = new Vector2(0, -powerupHeight * pos);
 
         menuTransform.Find("Name").GetComponent<TextMeshProUGUI>().SetText(name);
-        menuTransform.Find("Icon").GetComponent<Image>().sprite = icon;
         Debug.Log("Menu created!");
 
     }
 
-    /*private void buyItem(int price)
+    
+    //Uses powerup to base if you can buy item or not
+    
+    public void buyItem(PowerUp powerUp)
     {
-        if(price >= 0)
+        if(powerUp.price >= 0)
         {
-            if (cash.cashAmount >= price)
+            if (cash.cashAmount >= powerUp.price)
             {
-                cash.cashAmount - price;
+                cash.pay(powerUp.price);
             }
         }
         else
         {
             closeMenu();
         }
-    }*/
+    }
 
     public void showMenu()
     {
         shopUI.gameObject.SetActive(true);
-        shopButtonCreate(spriteIcons[0], "diamond", diamondPrice, 0);
-        shopCloseButtonCreate(spriteIcons[4], "Close Shop", 5);
+        shopButtonCreate(poweups[0].icon, poweups[0].powerupName, poweups[0].price, 0);
+        shopCloseButtonCreate("Close Shop", 5);
         Time.timeScale = 0;
     }
 
