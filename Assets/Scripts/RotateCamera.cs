@@ -17,7 +17,7 @@ public class RotateCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        focalpoint.transform.position = player.transform.position;
+        if (player != null) focalpoint.transform.position = player.transform.position;
     }
 
     // Runs in fixed time steps (independent of fps)
