@@ -20,6 +20,9 @@ public class SpawnManager : MonoBehaviour
     private int waveNumber = 1;
     public bool gameOver = false;
 
+    public GameObject gOver; // Gameover UI
+    // public GameObject gWin; // Win UI
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,9 +57,7 @@ public class SpawnManager : MonoBehaviour
         }
         else if (gameOver)
         {
-
-            // GAMEOVER HERE <<<
-
+            gOver.SetActive(true);
             Debug.Log("You lose!");
         }
     }
