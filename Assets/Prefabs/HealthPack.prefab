@@ -121,4 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: c1f1180b884807c4ba6a75013d8c7acc, type: 3}
   powerupName: +25 MAX HP
-  price: 500
+  price: 350
