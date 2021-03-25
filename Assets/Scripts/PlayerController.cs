@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameObject enemyThump;
     public GameObject moneyGet;
     public GameObject bounceSurface;
+    public GameObject hpGet;
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +91,10 @@ public class PlayerController : MonoBehaviour
 
             case "Cash":
                 moneyGet.GetComponent<AudioSource>().Play();
+                break;
+
+            case "HealthPack":
+                hpGet.GetComponent<AudioSource>().Play();
                 break;
         }
     }

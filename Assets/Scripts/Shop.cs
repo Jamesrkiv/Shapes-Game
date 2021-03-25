@@ -14,6 +14,11 @@ public class Shop : MonoBehaviour
     public GameObject player;
     private CashCollect cash;
 
+    public GameObject noSfx; // Sounds for buttons
+    public GameObject yesSfx;
+    private AudioSource ySfx;
+    private AudioSource nSfx;
+
     public enum buttonAssets
     {
 
@@ -30,6 +35,8 @@ public class Shop : MonoBehaviour
     void Start()
     {
         cash = player.GetComponent<CashCollect>();
+        ySfx = yesSfx.GetComponent<AudioSource>();
+        nSfx = noSfx.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -84,6 +91,7 @@ public class Shop : MonoBehaviour
                 closeMenu();
                 return true;
             }
+            nSfx.Play();
             return false;
         }
         else // Shouldn't happen, ideally
@@ -104,6 +112,7 @@ public class Shop : MonoBehaviour
 
     public void closeMenu()
     {
+        ySfx.Play();
         shopUI.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
