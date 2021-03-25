@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 2; // Time between dashes
     private bool canDash = true;
     public float dashSpeed;
+    public GameObject dashEnabled;  //dash icon for active dash
+    public GameObject dashDisabled; //dash icon for inactive dash
 
     public GameObject powerupIndicator;
     public Vector3 powerUpOffset;
@@ -25,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public GameObject moneyGet;
     public GameObject bounceSurface;
     public GameObject hpGet;
+
+     
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +52,8 @@ public class PlayerController : MonoBehaviour
         {
             canDash = false;
             playerRb.AddForce(focalPoint.transform.forward * dashSpeed);
+            dashEnabled.SetActive(false);
+            dashDisabled.SetActive(true);
             StartCoroutine(DashCooldown());
         }
 
@@ -133,6 +139,8 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+        dashEnabled.SetActive(true);
+        dashDisabled.SetActive(false);
         Debug.Log("Dash ready");
     }
 }
