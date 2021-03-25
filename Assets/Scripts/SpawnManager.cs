@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
     public bool gameOver = false;
 
     public GameObject gOver; // Gameover UI
-    // public GameObject gWin; // Win UI
+    public GameObject gWin; // Win UI
 
     // Start is called before the first frame update
     void Start()
@@ -46,19 +46,16 @@ public class SpawnManager : MonoBehaviour
             }
             SpawnEnemyWave(waveNumber);
             SpawnPowerup(); // Spawns Healthpack on new Round
-            // shopManager.showMenu();
         }
         else if (waveNumber == maxRound && enemyCount == 0)
         {
-
-            // WIN HERE <<<
-
-            Debug.Log("You win!");
+            gWin.SetActive(true);
+            // Debug.Log("You win!");
         }
         else if (gameOver)
         {
             gOver.SetActive(true);
-            Debug.Log("You lose!");
+            // Debug.Log("You lose!");
         }
     }
 
