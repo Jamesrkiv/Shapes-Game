@@ -22,4 +22,9 @@ public class ButtonOptions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void playGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
