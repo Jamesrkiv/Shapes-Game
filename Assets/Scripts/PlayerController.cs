@@ -56,10 +56,6 @@ public class PlayerController : MonoBehaviour
             dashDisabled.SetActive(true);
             StartCoroutine(DashCooldown());
         }
-        if (Input.GetKeyDown("escape"))
-        {
-            Application.Quit();
-        }
 
         if (hasGem) // hasGem set to true by Shop.cs, detected here
         {
