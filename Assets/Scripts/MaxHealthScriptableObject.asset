@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MaxHealthScriptableObject
   m_EditorClassIdentifier: 
   playerMaxHP: 100
-  enemyMaxHP: 50
+  enemyMaxHP: 75
   StartingPlayerMaxHP: 100
