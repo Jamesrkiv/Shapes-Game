@@ -38,6 +38,7 @@ public class HealthPoints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (hp <= 0) // Destroys entity if HP hits zero
         {
             hp = 0; // Avoids negatives

@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     public Text HP;
     public GameObject player;
     public GameObject pauseMenu;
+    public Slider slider;
 
     private static int enemyRemains;
     private HealthPoints playerHP;
@@ -25,7 +26,9 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HP.text = playerHP.hp.ToString();
+        HP.text = playerHP.hp.ToString() + "/" + playerHP.MaxHP.playerMaxHP.ToString();
+        slider.maxValue = playerHP.MaxHP.playerMaxHP;
+        slider.value = playerHP.hp;
         enemyRemains = SpawnManager.enemyCount;
         remainingEnemies.text = enemyRemains.ToString();
 
