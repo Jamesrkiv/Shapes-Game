@@ -135,4 +135,12 @@ public class Shop : MonoBehaviour
             player.GetComponent<HealthPoints>().hp = player.GetComponent<HealthPoints>().hp + 30;
         }
     }
+
+    public void buyMaxiHP()
+    {
+        if (buyItem(powerups[2]))
+        {
+            player.GetComponent<HealthPoints>().hp = player.GetComponent<HealthPoints>().MaxHP.playerMaxHP;
+        }
+    }
 }

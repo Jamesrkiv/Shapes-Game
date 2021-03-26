@@ -429,6 +429,7 @@ MonoBehaviour:
   powerups:
   - {fileID: 7884665509955022753, guid: 4298dc6c4b6e50e448f80daad2713c6f, type: 3}
   - {fileID: 2255014320656639199, guid: 63b26255e26ffc641ae93d0c13fd369b, type: 3}
+  - {fileID: 2147057054569322116, guid: f1edbbf6c35596646834d9114450cf94, type: 3}
   player: {fileID: 898015266}
   noSfx: {fileID: 1069069245}
   yesSfx: {fileID: 432460443}
@@ -637,7 +638,7 @@ RectTransform:
   - {fileID: 677036350}
   - {fileID: 1387119488}
   m_Father: {fileID: 551475254}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -731,7 +732,7 @@ RectTransform:
   - {fileID: 1361261110}
   - {fileID: 1241684453}
   m_Father: {fileID: 551475254}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1653,7 +1654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $???
+  m_text: $600
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2402,7 +2403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &551475254
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2414,10 +2415,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1155811360}
   - {fileID: 96822911}
   - {fileID: 1956175986}
   - {fileID: 91816087}
-  - {fileID: 1155811360}
   m_Father: {fileID: 34800537}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5067,7 +5068,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: bc2bdf37bbe04f1449d781237b0481f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5808,7 +5809,7 @@ GameObject:
   - component: {fileID: 1155811360}
   - component: {fileID: 1155811361}
   m_Layer: 5
-  m_Name: Placeholder
+  m_Name: maxHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5830,7 +5831,7 @@ RectTransform:
   - {fileID: 1000936942}
   - {fileID: 461467240}
   m_Father: {fileID: 551475254}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5881,7 +5882,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 34800538}
-        m_MethodName: 
+        m_MethodName: buyMaxiHP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8498,7 +8499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.2, y: -6.22}
+  m_AnchoredPosition: {x: -27.2, y: -5.74}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635811758
@@ -8520,7 +8521,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ????????
+  m_text: MAX HP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -9783,7 +9784,7 @@ RectTransform:
   - {fileID: 514326781}
   - {fileID: 936654037}
   m_Father: {fileID: 551475254}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
