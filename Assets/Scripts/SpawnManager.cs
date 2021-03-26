@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     public Shop shopManager; // shop
 
     public float spawnRange; // defines the range where things can spawn
-    private float cashRespawnTime = 10; // How long it takes cash to respawn
+    private float cashRespawnTime = 5; // How long it takes cash to respawn
 
     public Text waveNum; // Current wave number
     public int maxRound; // Round to make it to
