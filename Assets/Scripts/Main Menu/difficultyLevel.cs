@@ -7,12 +7,16 @@ public class difficultyLevel : MonoBehaviour
 {
     public GameObject diff;
     public GameObject diffSettings;
+    public GameObject softClick;
     public int difficulty = 2;
+
+    private AudioSource soft;
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(diff);
+        soft = softClick.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,11 +45,13 @@ public class difficultyLevel : MonoBehaviour
 
     public void openMenu()
     {
+        soft.Play();
         diffSettings.SetActive(true);
     }
 
     public void closeMenu()
     {
+        soft.Play();
         diffSettings.SetActive(false);
     }
 }

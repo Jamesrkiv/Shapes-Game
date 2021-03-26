@@ -9,7 +9,6 @@ public class GameEnd : MonoBehaviour
     public GameObject GameOverUI;
     public GameObject GameWinUI;
     public GameObject BackgroundMusic;
-    public GameObject victorySound;
     public Text timerText;
 
     private bool haveLost = false; // For tracking whether the gameover UI is enabled
